@@ -1,0 +1,20 @@
+<div id="app" class="grid-container">
+  <div id="nav">
+    <% @notes.each do |note| %>
+      <ul>
+        <li><%= note.title %></li>
+        <li><%= note.content %></li>
+        <li><%= note.tags %></li>
+        <li><%= link_to 'Show', note %></li>
+        <li><%= link_to 'Edit', edit_note_path(note) %></li>
+        <li><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    <% end %>
+    <%= link_to 'New Note', new_note_path %>
+  </div>
+  <div id="current-note">
+    <h1>Note</h1>
+    blah blah blah
+  </div>
+</div>
+

@@ -1,0 +1,52 @@
+<style>
+.grid-container{
+    display: grid;
+    align-items: stretch;
+    grid-template-areas: 
+    "header header"
+    "sidebar main"
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .main {
+    grid-area: main;
+  }
+
+  .nav{
+    grid-area: sidebar;
+  }
+
+  .formWrapper{
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .formWrapper input, .formWrapper textarea{
+    margin-bottom: 10px;
+  }
+
+  .formWrapper textarea{
+    min-height: 500px;
+  }
+</style>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NotesReact</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'app' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
