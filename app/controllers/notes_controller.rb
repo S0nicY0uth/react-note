@@ -44,8 +44,8 @@ class NotesController < ApplicationController
 
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
-  def update
-    respond_to do |format|
+  def update 
+  respond_to do |format|
       if @note.update(note_params)
         format.html { redirect_to @note, notice: 'Note was successfully updated.' }
         format.json { render :show, status: :ok, location: @note }

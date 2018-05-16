@@ -9,38 +9,46 @@ import PropTypes from 'prop-types'
 class Note extends React.Component {
     constructor(props) {
         super(props);
-        this.noteTitle = props.noteTitle;
-        this.noteContent = props.noteContent;
+        this.title = props.title;
+        this.content = props.content;
         this.noteId = props.noteId;
         this.forNav = props.forNav;
         this.id = props.id;
         this.pos = props.pos
+
     }
 
+
+
     noteClicked(e){
-        this.props.selectNote({noteContent: this.noteContent, noteTitle: this.noteTitle})
+        console.log(this.content);
+        this.props.selectNote({id: this.id, content: this.content, title: this.title})
     }
 
     delNote(e){
         // console.log(this.dbId);
-        this.props.removeNote({id: this.id, pos: this.pos});
+        this.props.removeNoteFromDb(this.id);
     }
+
+   
 
 
     render(props){
         if(this.forNav){
             return (
                 <div id={this.id} onClick={this.noteClicked.bind(this)}  className="note">
-                   <h5 className="noteContent">{this.noteTitle}</h5>
-                   <p className="noteContent">{this.noteContent}</p>
-                   <button onClick={this.delNote.bind(this)} className="noteButton">Del</button>
+                   <h5 className="noteContent">{this.title}</h5>
+                   <p className="noteContent">{this.content.substring(0, 10)}..</p>
+                   <button onClick={this.delNote.bind(this)} className="noteButton">
+                    <i className="fas fa-trash"></i>
+                   </button>
                 </div>
             )
         }else {
             return (
                 <div id={this.id} onClick={this.noteClicked.bind(this)}  className="note">
-                   <h5 className="noteContent">{this.props.noteTitle}</h5>
-                   <p className="noteContent">{this.props.noteContent}</p>
+                   <h5 className="noteContent">{this.props.title}</h5>
+                   <p className="noteContent">{this.props.content}</p>
                 </div>
             )
         }
@@ -48,7 +56,7 @@ class Note extends React.Component {
 }
 
 Note.propTypes = {
-    noteContent: PropTypes.string
+    content: PropTypes.string
 }
 
 export default Note;
