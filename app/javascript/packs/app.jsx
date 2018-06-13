@@ -179,6 +179,7 @@ class App extends React.Component{
         </div>
         <div className="popups">
           <button className="add-note" onClick={this.newNote.bind(this)}><i className="fas fa-2x fa-plus"></i></button>
+          <a className="destroy-session" data-method="delete" href="/users/sign_out"><i class="fas fa-2x fa-sign-out-alt"></i></a>
         </div>
       </div>
 
