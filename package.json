@@ -5,10 +5,15 @@
     "@rails/webpacker": "3.5",
     "axios": "^0.18.0",
     "babel-preset-react": "^6.24.1",
+    "draft-js": "^0.10.5",
+    "es6-shim": "^0.35.3",
     "immutability-helper": "^2.7.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react-ckeditor": "^0.0.1",
+    "react-ckeditor-component": "^1.0.7",
+    "react-dom": "^16.3.2",
+    "react-draft-wysiwyg": "^1.12.13"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"

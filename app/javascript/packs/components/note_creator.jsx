@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import {Editor, EditorState} from 'draft-js';
+import 'draft-js/dist/Draft.css';
+
 
 
 class NoteCreator extends React.Component {
@@ -9,7 +12,10 @@ class NoteCreator extends React.Component {
         this.state = {
             content: '',
             title: '',
-        };      
+            editorState: EditorState.createEmpty()
+        };
+        
+        this.onChange = (editorState) => this.setState({editorState});      
     }
 
     
@@ -57,7 +63,8 @@ class NoteCreator extends React.Component {
             <div className="formWrapper">
                 <input className="noteInput" onChange={this.handleTitleInput.bind(this)} value={this.state.title} placeholder="Title.." type="text"/>  
                 <textarea className="noteInput" onChange={this.handleContentInput.bind(this)} value={this.state.content} placeholder="Content.." type="text"/>
-                <button onClick={this.saveNote.bind(this)} className="noteButton"><i class="far fa-3x fa-save"></i></button>
+                <button onClick={this.saveNote.bind(this)} className="noteButton"><i className="far fa-3x fa-save"></i></button>
+                <Editor editorState={this.state.editorState} onChange={this.onChange} />
             </div>
         )
     }

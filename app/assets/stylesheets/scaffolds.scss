@@ -1,15 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
 body {
   background-color: #fff;
   margin: 33px;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: 'Roboto', verdana, arial, helvetica, sans-serif;
+  font-size: 16px;
   line-height: 18px;
+  font-weight: 300;
+}
+
+h1, h2,h3 {
+  font-family: 'Pacifico';
+  font-size: 40px;
+  color: #2b90d9;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: 'Roboto',verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  font-weight: 300;
 }
 
 pre {

@@ -9,6 +9,8 @@ import Note from './components/note'
 import NoteCreator from './components/note_creator'
 import axios from 'axios'
 import update from 'immutability-helper';
+import 'draft-js/dist/Draft.css';
+
 
 class App extends React.Component{
 
@@ -162,7 +164,7 @@ class App extends React.Component{
       <div id="app" className="grid-container">
         <div className="nav">
           <div className="nav-heading">
-            <h3>Note List</h3>
+            <h3>Noteable</h3>
           </div>
           {
             this.state.notes.map((note,i)=>{
@@ -176,7 +178,7 @@ class App extends React.Component{
           <NoteCreator id={`${this.state.currentNote.id}`} content={this.state.currentNote.content} title={this.state.currentNote.title} insertNoteToDB={this.insertNoteToDB} updateNoteInDB={this.updateNoteInDB}/>
         </div>
         <div className="popups">
-          <button className="add-note" onClick={this.newNote.bind(this)}><i class="fas fa-2x fa-plus"></i></button>
+          <button className="add-note" onClick={this.newNote.bind(this)}><i className="fas fa-2x fa-plus"></i></button>
         </div>
       </div>
 
