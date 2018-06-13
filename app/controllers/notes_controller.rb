@@ -4,11 +4,16 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
 
-    respond_to do |format|
-      format.html { render :index }
-      format.json { render json: @notes}
+    if !user_signed_in?
+      redirect_to new_user_session_path
+    else
+      @notes = current_user.notes.all
+
+      respond_to do |format|
+        format.html { render :index }
+        format.json { render json: @notes}
+      end
     end
   end
 
@@ -29,7 +34,11 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @note = Note.new(note_params)
+
+    @note = current_user.notes.new(note_params)
+    
+    # binding.pry
+    # @note = Note.new(note_params)
 
     respond_to do |format|
       if @note.save
@@ -74,6 +83,6 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:title, :content, :tags)
+      params.require(:note).permit(:title, :content, :tags, :user_id)
     end
 end
